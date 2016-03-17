@@ -14,7 +14,7 @@ class App extends React.Component{
 
     }
     componentDidMount(){
-        this.myDB = new ACCESSdb("C:\\Users\\root\\WebStormProjects\\access-spa-logbook\\database\\logbook-client.mdb", {showErrors:true});
+        this.myDB = new ACCESSdb("database\\logbook-client.mdb", {showErrors:true});
     }
     render(){
         return (
