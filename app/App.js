@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 
 class App extends React.Component{
 
@@ -15,19 +14,18 @@ class App extends React.Component{
     }
     componentDidMount(){
         this.myDB = new ACCESSdb("database\\logbook-client.mdb", {showErrors:true});
+        var query = this.myDB.query("SELECT * FROM entry");
+        console.log(query);
     }
     render(){
         return (
             <div id="content">
-                    {this.props.children}
             </div>
         )
     }
 }
 
-ReactDOM.render((
-    <Router history={browserHistory}>
-    <Route path="/" component={App}>
-    </Route>
-    </Router>
-), document.getElementById('app'));
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);
